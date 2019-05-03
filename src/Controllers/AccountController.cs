@@ -9,6 +9,7 @@ using Miniblog.Core.Services;
 
 namespace Miniblog.Core.Controllers
 {
+    // comment
     [Authorize]
     public class AccountController : Controller
     {
