@@ -43,7 +43,7 @@ namespace Miniblog.Core.Models
             return $"/blog/{System.Net.WebUtility.UrlEncode(Slug)}/";
         }
 
-        public bool AreCommentsOpen(int commentsCloseAfterDays)
+        public bool AreCommentsOpen(int commentsCloseAfterDays) // To check: Where is this called from?
         {
             return PubDate.AddDays(commentsCloseAfterDays) >= DateTime.UtcNow;
         }
@@ -52,6 +52,7 @@ namespace Miniblog.Core.Models
         {
             title = title.ToLowerInvariant().Replace(" ", "-");
             title = RemoveDiacritics(title);
+            // To check: Verify that RemoveReservedUrlCharacters checks for `!` character
             title = RemoveReservedUrlCharacters(title);
 
             return title.ToLowerInvariant();

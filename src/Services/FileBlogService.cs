@@ -34,6 +34,7 @@ namespace Miniblog.Core.Services
         public virtual Task<IEnumerable<Post>> GetPosts(int count, int skip = 0)
         {
             bool isAdmin = IsAdmin();
+            bool isNotAdmin = !isAdmin;
 
             var posts = _cache
                 .Where(p => p.PubDate <= DateTime.UtcNow && (p.IsPublished || isAdmin))

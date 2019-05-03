@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.SyndicationFeed;
 using Microsoft.SyndicationFeed.Atom;
@@ -27,7 +28,7 @@ namespace Miniblog.Core.Controllers
         }
 
         [Route("/robots.txt")]
-        [OutputCache(Profile = "default")]
+        [OutputCache(Profile = "default")] // To check: Where else is this used?
         public string RobotsTxt()
         {
             string host = Request.Scheme + "://" + Request.Host;
