@@ -14,6 +14,7 @@ namespace Miniblog.Core.Controllers
         /// </summary>
         public IActionResult Offline()
         {
+            int unused = 1;
             return View();
         }
     }
