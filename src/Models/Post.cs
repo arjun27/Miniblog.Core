@@ -52,7 +52,6 @@ namespace Miniblog.Core.Models
         {
             title = title.ToLowerInvariant().Replace(" ", "-");
             title = RemoveDiacritics(title);
-            // To check: Verify that RemoveReservedUrlCharacters checks for `!` character
             title = RemoveReservedUrlCharacters(title);
 
             return title.ToLowerInvariant();
