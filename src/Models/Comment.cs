@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Miniblog.Core.Models
 {
-    public class Comment
+    public class Comment : AuthoredContent
     {
         [Required]
         public string ID { get; set; } = Guid.NewGuid().ToString();

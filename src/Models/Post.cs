@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace Miniblog.Core.Models
 {
-    public class Post
+    public class Post : AuthoredContent
     {
         [Required]
         public string ID { get; set; } = DateTime.UtcNow.Ticks.ToString();
@@ -99,6 +99,10 @@ namespace Miniblog.Core.Models
                 result = Regex.Replace(result, @"\[youtube:(.*?)\]", m => string.Format(video, m.Groups[1].Value));
             }
             return result;
+        }
+
+        public string GetGravatar() {
+            return "";
         }
     }
 }
