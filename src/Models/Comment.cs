@@ -4,7 +4,6 @@ using System.Text;
 
 namespace Miniblog.Core.Models
 {
-    // comment
     public class Comment
     {
         [Required]

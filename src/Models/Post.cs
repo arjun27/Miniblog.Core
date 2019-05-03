@@ -35,7 +35,6 @@ namespace Miniblog.Core.Models
 
         public string GetLink()
         {
-            // comment
             return $"/blog/{Slug}/";
         }
 
