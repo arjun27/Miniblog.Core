@@ -109,7 +109,6 @@ namespace Miniblog.Core.Controllers
 
             // To check: Verify CreateSlug replaces spaces with hyphens
             var slug = Models.Post.CreateSlug(post.Title);
-
             existing.Slug = !string.IsNullOrWhiteSpace(post.Slug) ? post.Slug.Trim() : slug;
             existing.IsPublished = post.IsPublished;
             existing.Content = post.Content.Trim();
