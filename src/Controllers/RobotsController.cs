@@ -27,7 +27,7 @@ namespace Miniblog.Core.Controllers
         }
 
         [Route("/robots.txt")]
-        [OutputCache(Profile = "default")]
+        [OutputCache(Profile = "default")] // To check: Where else is this used?
         public string RobotsTxt()
         {
             string host = Request.Scheme + "://" + Request.Host;

@@ -106,7 +106,10 @@ namespace Miniblog.Core.Controllers
 
             existing.Categories = categories.Split(",", StringSplitOptions.RemoveEmptyEntries).Select(c => c.Trim().ToLowerInvariant()).ToList();
             existing.Title = post.Title.Trim();
-            existing.Slug = !string.IsNullOrWhiteSpace(post.Slug) ? post.Slug.Trim() : Models.Post.CreateSlug(post.Title);
+
+            // To check: Verify CreateSlug replaces spaces with hyphens
+            var slug = Models.Post.CreateSlug(post.Title);
+            existing.Slug = !string.IsNullOrWhiteSpace(post.Slug) ? post.Slug.Trim() : slug;
             existing.IsPublished = post.IsPublished;
             existing.Content = post.Content.Trim();
             existing.Excerpt = post.Excerpt.Trim();
@@ -115,6 +118,7 @@ namespace Miniblog.Core.Controllers
 
             await _blog.SavePost(existing);
 
+            // To check: Hover to read documentation for Redirect
             return Redirect(post.GetEncodedLink());
         }
 
